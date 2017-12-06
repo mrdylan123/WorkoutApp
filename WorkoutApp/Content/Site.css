@@ -1,0 +1,527 @@
+﻿* {
+    font-family: 'Poppins', sans-serif, bold;
+}
+
+/* This will be the errors displayed on various pages*/
+h5 {
+    font-family: 'Poppins', sans-serif, bold;
+    color: red;
+}
+
+body {
+    padding-top: 50px;
+    /*padding-bottom: 20px;*/
+}
+
+body, .body-content{
+    background-color: #f0f0f0;
+    color: #333333;
+}
+
+a, .btn {
+    -webkit-transition: all 0.2s ease-out !important;
+    -moz-transition: all 0.2s ease-out !important;
+    transition: all 0.2s ease-out !important;
+}
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+
+/*
+    Navbar styling
+*/
+.navbar-header {
+    /*margin-right: 80px;*/   
+}
+
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e6e6e6;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif
+}
+
+.navbar .navbar-brand {
+    color: #777777;
+}
+
+.navbar .navbar-text {
+    color: #777777;
+}
+
+.navbar .navbar-nav > .active > a {
+  color: #555555;
+  background-color: #c5c5c5;
+}
+
+.navbar .navbar-nav > li > a {
+    color: #777777;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.navbar .navbar-nav > li > a:hover , .navbar .navbar-nav > li > a:focus {
+    color: #333333;
+    background-color: transparent;
+}
+
+.navbar-btn {
+    color: #ffffff !important;
+    background-color: #ff5757;
+    border-color: #ffffff;
+    font-weight: normal !important;
+    font-size: 14px;
+    border-radius: 3px;
+    text-transform: none !important;
+    padding: 6px 12px 6px !important;
+    margin-right: 10px !important;
+}
+
+.navbar-btn:hover, .navbar-btn:focus {
+    background-color: #ff6868 !important;
+    border-color: transparent !important;
+    color: #ffffff !important;
+}
+
+/* Change color of icon bars shown on mobile devices */
+.navbar .navbar-toggle .icon-bar {
+    background-color: #333333;
+}
+
+.navbar .navbar-toggle {
+    float: right;
+}
+
+.welcomemessage {
+    text-align: center;
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle;
+    color: #777777;
+    font-size: 14px;
+}
+
+.nav>li>div {
+    padding: 10px 15px;
+    vertical-align: middle;
+    color: #777777;
+}
+
+.usernameanchor {
+    text-decoration: underline !important;
+    color: #777777;
+    font-size: 14px;
+}
+
+.usernameanchor:hover, .usernameanchor:focus {
+    color: #1e90ff;
+}
+/*
+    End navbar styling
+*/
+
+
+/**
+    Index page
+*/
+.headerdivfirst {
+    min-height: 40vh;
+    background: url('dumbbells.jpg') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: table;
+    width: 100%;
+    position: relative;
+    /*position: center;*/
+    /*align-items: center;
+    justify-content: center;*/
+    /*background-repeat: no-repeat;
+    background-size: cover;*/
+    /*background-position: center;*/
+}
+
+.headerdivfirst .innerheaderdiv {
+    /*background: #333;*/
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(20% 40% at center, #c5c5c5, #333);
+    text-align: center;
+    opacity: 0.3;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding: 0;
+    /*transition: opacity .5s;*/
+}
+
+/*.headerdivfirst:hover .innerheaderdiv {
+    opacity: 0.9;
+    transition: opacity .5s;
+}*/
+
+.headerdivfirst .h1, .headertext {
+    font-family: 'Oswald', sans-serif;
+    /*font-weight: 700;*/
+    color: #fff;
+    opacity: 1.0 !important;
+    display: table-cell;
+    vertical-align: middle;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
+}
+
+/* Start resizing home text on smaller screens */
+.headerdivfirst .h1, .headertext {
+  font-size: 95px;
+}
+
+/************************************************************************************
+smaller than 980
+*************************************************************************************/
+@media screen and (max-width: 980px) {
+.headerdivfirst .h1, .headertext {
+    font-size: 70px;
+  }
+}
+
+/************************************************************************************
+smaller than 650
+*************************************************************************************/
+@media screen and (max-width: 650px) {
+.headerdivfirst .h1, .headertext {
+    font-size: 65px;
+  }
+}
+/************************************************************************************
+smaller than 560
+*************************************************************************************/
+@media screen and (max-width: 480px) {
+.headerdivfirst .h1, .headertext {
+    font-size: 50px;
+  }
+}
+
+    .box {
+        background-color: #fff;
+        margin-top: 20px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 20px;
+        -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+.contenthomepage {
+    margin-top: 0 !important;
+    min-height: 52.3vh;
+}
+
+.imgintro {
+    display : block;
+    margin : auto;
+    height: 100px;
+    width: 100px;
+}
+
+.infocontent {
+    margin-bottom: 20px;
+}
+
+.infocontent h1 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    color: #515151;
+}
+
+.infocontent p {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+.lead {
+    font-weight: 300;
+}
+
+/**
+    End of index page
+*/
+
+
+/*
+    Login page styling
+*/
+
+
+.hr-box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eeeeee;
+}
+
+label {
+    font-weight: normal;
+}
+
+.btn-regular {
+    color: #ffffff !important;
+    background-color: #ff5757;
+    border-color: #ffffff;
+    font-weight: normal !important;
+    font-size: 14px;
+    border-radius: 3px;
+    text-transform: none !important;
+}
+
+.btn-regular:hover, .btn-regular:focus {
+    background-color: #ff6868 !important;
+    border-color: transparent !important;
+    color: #ffffff !important;
+}
+
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+}
+
+/*
+    End of login page
+*/
+
+
+
+/*
+    Workout page styling
+*/
+.workoutstitle {
+    margin-top: 0;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.workoutstitle h2 {
+    margin-top: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+.selectlistworkouts {
+    border-radius: 4px !important;
+    margin: 5px 5px 5px 0;
+    margin-bottom: 5px !important;
+}
+
+.workoutscontent {
+    background-color: #fcfcfc;
+    -webkit-transition: 3s;
+    -moz-transition: 3s;
+    transition: 3s;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.2);
+}
+
+.workoutscontent h1 {
+    margin-top: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Start resizing workout title text on smaller screens */
+.workoutscontent h1 {
+  font-size: 24px;
+}
+
+/************************************************************************************
+smaller than 980
+*************************************************************************************/
+@media screen and (max-width: 980px) {
+.workoutscontent h1 {
+    font-size: 22px;
+  }
+}
+
+/************************************************************************************
+smaller than 650
+*************************************************************************************/
+@media screen and (max-width: 650px) {
+.workoutscontent h1 {
+    font-size: 20px;
+  }
+}
+/************************************************************************************
+smaller than 560
+*************************************************************************************/
+@media screen and (max-width: 480px) {
+.workoutscontent h1 {
+    font-size: 18px;
+  }
+}
+
+/* Start resizing label text on smaller screens */
+.workoutlabel {
+  font-size: 18px;
+}
+
+/************************************************************************************
+smaller than 980
+*************************************************************************************/
+@media screen and (max-width: 980px) {
+.workoutlabel {
+    font-size: 16px;
+  }
+}
+
+/************************************************************************************
+smaller than 650
+*************************************************************************************/
+@media screen and (max-width: 650px) {
+.workoutlabel {
+    font-size: 14px;
+  }
+}
+/************************************************************************************
+smaller than 560
+*************************************************************************************/
+@media screen and (max-width: 480px) {
+.workoutlabel {
+    font-size: 12px;
+  }
+}
+
+.workout-info {
+    position: relative;
+    font-size: 18px;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.span-info {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+}
+
+.hr-info {
+    background-color: #cdcdcd;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.pricetext {
+    font-size: 16px;
+}
+
+/*
+    End of workout page
+*/
+
+/*
+   Adminpanel page
+*/
+.panelbox {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    transition: 1s;
+    padding-left: 10px;
+    padding-right: 10px;
+    /*text-align: center;*/
+}
+
+.panelrow {
+    /*display: table;*/
+}
+
+.innerpaneldiv {
+    padding: 25px;
+    display: table-cell;
+}
+
+.panelbox1 {
+    background-color: #ed5b57;
+}
+
+.panelbox1:hover, .panelbox1:focus {
+    background-color: #ff9491;
+}
+
+.panelbox2 {
+    background-color: #00b297;
+}
+
+.panelbox2:hover, .panelbox2:focus {
+    background-color: #00e2bf;
+}
+
+.panelbox3 {
+    background-color: #F89A14;
+}
+
+.panelbox3:hover, .panelbox3:focus {
+    background-color: #ffb854;
+}
+
+.panelbox4 {
+    background-color: #2d80c6;
+}
+
+.panelbox4:hover, .panelbox4:focus {
+    background-color: #58b1fc;
+}
+
+/* Font awesome icons in the buttons */
+.panelbox i {
+    color: #fff;
+    font-size: 45px;
+    line-height: inherit;
+}
+
+.paneltitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0;
+}
+
+.panelsubtitle {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.paneltext {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+}

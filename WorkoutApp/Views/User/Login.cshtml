@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Inloggen - VictoriaPT";
+}
+
+<div class="row">
+    
+    <!-- Register box -->
+    <div class="col-md-6 col-sm-6">
+        <div class="box">
+            <h1>Registreren</h1>
+            <p class="lead">Nog niet in het bezit van een account?</p>
+            <h5>@ViewBag.errorRegister</h5>
+            <hr class="hr-box"/>
+            
+            <form method="post" role="form" action="@Url.Action("Register", "User")">
+                <div class="form-group">
+                    <label for="email">Emailadres</label>
+                    <input type="email" pattern=".{3,}" oninvalid="this.setCustomValidity('Uw emailadres moet minimaal 3 en maximaal 25 karakters bevatten.')" oninput="this.setCustomValidity('')"  class="form-control" id="email" name="email" maxlength="25" required>
+                </div>
+                
+            <div class="form-group">
+                <label for="Registerusername">Gebruikersnaam</label>
+                <input type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('Uw inlognaam en wachtwoord mogen minimaal 3 en maximaal 20 karakters bevatten.')" oninput="this.setCustomValidity('')"  class="form-control" id="Registerusername" name="Registerusername" maxlength="20" required>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="dateofbirth">Geboortedatum</label>
+                        <input type="date" name="dateofbirth" id="dateofbirth" class="form-control">
+                    </div>
+                </div>
+            
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="gender">Geslacht</label>
+                        <select class="form-control" id="gender" name="gender" placeholder="Noteer je geslacht" title="Noteer je geslacht">
+                            <option>Man</option>
+                            <option>Vrouw</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+                <div class="form-group">
+                    <label for="Registerpassword">Wachtwoord</label>
+                    <input type="password" pattern=".{3,}" oninvalid="this.setCustomValidity('Uw inlognaam en wachtwoord mogen minimaal 3 en maximaal 20 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="Registerpassword" name="Registerpassword" maxlength="20" required>
+                </div>
+                
+
+
+                <button type="submit" class="btn btn-regular">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i> Registreren
+                </button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Login box -->
+    <div class="col-md-6 col-sm-6">
+        <div class="box">
+            <h1>Inloggen</h1>
+            <p class="lead">U heeft al een account?</p>
+            <hr class="hr-box" />
+
+            <form method="post" role="form" action="@Url.Action("Dashboard", "User")">
+                <div class="form-group">
+                    <label for="Loginusername">Gebruikersnaam of emailadres</label>
+                    <input type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('Uw inlognaam en wachtwoord mogen minimaal 3 en maximaal 20 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="Loginusername" name="Loginusername" maxlength="20" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Loginpassword">Wachtwoord</label>
+                    <input type="password" pattern=".{3,}" oninvalid="this.setCustomValidity('Uw inlognaam en wachtwoord mogen minimaal 3 en maximaal 20 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="Loginpassword" name="Loginpassword" maxlength="20" required>
+                </div>
+
+                <button type="submit" class="btn btn-regular">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> Inloggen
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+

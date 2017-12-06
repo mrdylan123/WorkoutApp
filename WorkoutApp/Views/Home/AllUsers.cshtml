@@ -1,0 +1,13 @@
+﻿@using WorkoutApp.Models
+
+@{
+    ViewBag.Title = "AllUsers";
+}
+
+<h2>AllUsers</h2>
+
+@for (int i = 0; i < ViewBag.userstotal; i++)
+{
+    User u = ViewBag.userslist[i];
+    <h5>@u.Username</h5>
+}

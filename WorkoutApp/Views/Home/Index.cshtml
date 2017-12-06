@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Home - VictoriaPT";
+    ViewBag.Active = 0;
+}
+
+<script>
+    //document.addEventListener('DOMContentLoaded', function () {
+    //    setTimeout(function () {
+    //        document.getElementById('logindiv').className = 'slideDown';
+    //    }, 1500);
+    //}, false);
+</script>
+
+<div class="container text-center headerdivfirst">
+    <h1 class="headertext">Victoria PT</h1>
+    <div class="innerheaderdiv">
+
+    </div>
+</div>
+
+<div class="box contenthomepage">
+    <div class="container headerdivsecond">
+        <div class="intro">
+            <div class="row" style="width: 100%;">
+                <div class="col-md-4">
+                    <div class="infoicon">
+                        <img class="img-responsive imgintro" src="~/Content/workout.svg" alt="Workouts" />
+                    </div>
+                    <div class="infocontent">
+                        <h1>Workouts</h1>
+                        <p>Verschillende workout schemas met verschillende doeleinden. Ook kunnen wij een op maat gemaakt workout schema opstellen met jouw aangepaste wensen.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="infoicon">
+                        <img class="img-responsive imgintro" src="~/Content/meal.svg" alt="Voedingsschemas" />                        
+                    </div>
+                    <div class="infocontent">
+                        <h1>Voeding</h1>
+                        <p>Vooraf opgesteld aanbod van uitgebreide voedingsschemas voor afslanken, spieropbouw en aankomen. Ook kunnen wij op aanvraag een speciaal voedingsschema opstellen met jouw aangepaste wensen.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="infoicon">
+                        <img class="img-responsive imgintro" src="~/Content/blog.svg" alt="Health & Lifestyle blogs" />                        
+                    </div>
+                    <div class="infocontent">
+                        <h1>Blogs</h1>
+                        <p>Blogpagina met blogs over gezondheid en lifestyle geschreven door personal trainers. De blog blijft actueel met de laatste ontwikkelingen en onderzoeken.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Oude hr met or (regel 218 site.css) -->
+        @*<div class="login-or">
+            <hr class="hr-or">
+            <span class="span-or">or</span>
+        </div>*@
+    </div>
+</div>
+@Html.ActionLink("Vraag namen op", "AllUsers")
+
+<!-- Check deze open source animatie documentatie http://mynameismatthieu.com/WOW/docs.html -->

@@ -1,0 +1,64 @@
+﻿@using WorkoutApp.Models
+@{
+    ViewBag.Title = "Workout schrijven | Victoria PT";
+}
+@{ User user = (User) Session["User"]; }
+
+<div class="row">
+
+    <!-- Input box -->
+    <div class="col-md-12 col-sm-12">
+        <div class="box">
+            <h1>Workout toevoegen</h1>
+            <p class="lead">Vul onderstaande velden in om een workout toe te voegen</p>
+            <hr class="hr-box" />
+            
+            <form method="post" role="form" action="@Url.Action("AddWorkout", "Workout")">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group">
+                            <label for="Workouttitle">Titel</label>
+                            <input type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('De titel moet minimaal 3 en mag maximaal 25 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="Workouttitle" name="Workouttitle" maxlength="25" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group">
+                            <label for="Workoutprice">Prijs</label>
+                            <input type="number" min="0.00" max="10000.00" step="0.01" value="1.50" class="form-control" name="Workoutprice" id="Workoutprice" required />
+                        </div>
+                    </div>    
+                </div>
+
+                <div class="form-group">
+                    <label for="Goal">Doel</label>
+                    <select class="form-control selectlistworkouts" name="Goal" id="Goal" required>
+                        <option value="" selected disabled hidden>Doel...</option>
+                        <option value="Afvallen">Afvallen</option>
+                        <option value="Spieropbouw">Spieropbouw</option>
+                        <option value="Spierkracht">Spierkracht</option>
+                        <option value="Core">Core stability</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="DescriptionShort">Beschrijving (kort)</label>
+                    <input type="text" style="max-width: none;" pattern=".{3,}" oninvalid="this.setCustomValidity('De beschrijving moet minimaal 3 en mag maximaal 100 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="DescriptionShort" name="DescriptionShort" maxlength="100" required>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="DescriptionLong">Beschrijving (lang)</label>
+                    <textarea name="DescriptionLong" id="DescriptionLong"></textarea>
+                </div>
+
+
+
+                <button type="submit" class="btn btn-regular">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Toevoegen
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script> $(function() { $('textarea').froalaEditor() }); </script>

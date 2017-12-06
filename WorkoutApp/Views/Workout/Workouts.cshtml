@@ -1,0 +1,58 @@
+﻿@using WorkoutApp.Models;
+@{
+    ViewBag.Title = "Workouts | VictoriaPT";
+    ViewBag.Active = 1;
+}
+
+
+<div class="box workoutstitle">
+    <h2>Alle workouts</h2>
+    @if (ViewBag.WorkoutsListCount > 0)
+    {
+        <p>Filter/sorteer op:</p>
+
+        /* Handle the form with jquery and ajax so that only a part of the page has to be reloaded */
+        using (Ajax.BeginForm("Filter", "Workout", new AjaxOptions()
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "results",
+            InsertionMode = InsertionMode.Replace
+        }))
+        {
+            <div class="input-group">
+                <select class="form-control selectlistworkouts" name="Price">
+                    <option value="" selected disabled hidden>Prijs...</option>
+                    <option value="up">Laag naar hoog</option>
+                    <option value="down">Hoog naar laag</option>
+                </select>
+
+                <select class="form-control selectlistworkouts" name="Goal">
+                    <option value="" selected disabled hidden>Doel...</option>
+                    <option value="Afvallen">Afvallen</option>
+                    <option value="Spieropbouw">Spieropbouw</option>
+                    <option value="Spierkracht">Spierkracht</option>
+                    <option value="Core">Core stability</option>
+                </select>
+
+                <button type="submit" class="btn btn-regular">
+                    <i class="fa fa-search" aria-hidden="true"></i> Filter
+                </button>
+            </div>
+        }
+    }
+    <hr />
+    
+    <!-- If no workouts have been found in the first place -->
+    @if (ViewBag.WorkoutsListCount == 0)
+    {
+        <p>Er zijn geen workouts gevonden</p>   
+    }
+
+    <div id="results">
+        @{Html.RenderPartial("WorkoutsPartial");}
+    </div>
+    
+
+</div>
+
+

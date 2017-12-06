@@ -1,0 +1,97 @@
+﻿@using WorkoutApp.Models;
+
+@{
+    ViewBag.Title = "Adminpaneel | Victoria PT";
+}
+@{User user = (User)Session["User"];}
+
+<h2>AdminPanel</h2>
+<p>Hier kan je gebruikers beheren en producten toevoegen.</p>
+
+<div class="row">
+    
+    @if (user.Accounttype == "owner")
+    {
+        <a href="#" onclick="location.href='@Url.Action("ManageUsers", "Admin")'">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                <div class="panelbox panelbox1">
+                    <div class="row panelrow">
+                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 innerpaneldiv">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 innerpaneldiv">
+                            <p class="paneltitle"># Gebruikers</p>
+                            <p class="panelsubtitle">@ViewBag.TotalUsers</p>
+                            <p class="paneltext">Gebruikers beheren</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+    
+    <a href="#" onclick="location.href='@Url.Action("CreateWorkout", "Admin")'">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="panelbox panelbox2">
+                <div class="row panelrow">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 innerpaneldiv">
+                        <i class="fa fa-bolt" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 innerpaneldiv">
+                        <p class="paneltitle"># Workouts</p>
+                        <p class="panelsubtitle">3</p>
+                        <p class="paneltext">3-12 Laatste workout</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    
+
+    <a href="#" onclick="location.href='@Url.Action("CreateMealPlan", "Admin")'">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="panelbox panelbox3">
+                <div class="row panelrow">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 innerpaneldiv">
+                        <i class="fa fa-cutlery" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 innerpaneldiv">
+                        <p class="paneltitle"># Voedingsschemas</p>
+                        <p class="panelsubtitle">6</p>
+                        <p class="paneltext">3-12 Laatste schema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    
+
+    <a href="#" onclick="location.href='@Url.Action("WriteBlog", "Admin")'">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <div class="panelbox panelbox4">
+                <div class="row panelrow">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 innerpaneldiv">
+                        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 innerpaneldiv">
+                        <p class="paneltitle"># Blogs</p>
+                        <p class="panelsubtitle">4</p>
+                        <p class="paneltext">7-12 Laatste blog</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+
+<div class="row">
+    
+    
+    <!-- Nieuwsbrief e.d. -->
+    
+
+</div>

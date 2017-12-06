@@ -1,0 +1,10 @@
+﻿@using WorkoutApp.Models
+@{
+    ViewBag.Title = "Dashboard | VictoriaPT";
+}
+
+<!-- Check if the visitor of this page is logged in, else send it back -->
+@{User user = (User) Session["User"];}
+
+<h2>Dashboard</h2>
+<h1>Hoi, @user.Username</h1>

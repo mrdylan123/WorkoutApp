@@ -1,0 +1,127 @@
+﻿@using WorkoutApp.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    
+    <!-- Import other elements -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+    <link href="~/Content/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/froala_style.min.css" rel="stylesheet" type="text/css"/>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jslist.js"></script>
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2/jquery.validate.unobtrusive.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.4/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
+    <script type="text/javascript" src="~/Content/froala_editor.pkgd.min.js"></script>
+
+    <!-- Import fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lemonada" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    
+    <!-- Glyphicons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" type="text/css"/>
+
+    <!-- Import own css -->
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    
+    @if (null != TempData["alertMessage"])
+    {
+        <script type="text/javascript">
+            alert("@TempData["alertMessage"]");
+        </script>
+    }
+
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#" onclick="location.href='@Url.Action("Index", "Home")'">VICTORIA PT</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li @if (ViewBag.Active == 0)
+                        {
+                            @:class="active";
+                        }>
+                        <a href="#" onclick="location.href = '@Url.Action("Index", "Home")'">Home</a>
+                    </li>
+                    <li
+                        @if (ViewBag.Active == 1)
+                        {
+                            @:class="active";
+                        }>
+                        <a href="#" onclick="location.href = '@Url.Action("Workouts", "Workout")'">Workouts</a>
+                    </li>
+                    <li @if (ViewBag.Active == 2) { @: class="active" ;
+                        }>
+                        <a href="#" onclick="location.href = '@Url.Action("", "")'">Voeding</a>
+                    </li>
+                    <li @if (ViewBag.Active == 3) { @: class="active" ;
+                                                                        }>
+                        <a href="#" onclick="location.href = '@Url.Action("", "")'">Blog</a>
+                    </li>
+                    @*<li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">About<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Website</a></li>
+                            <li><a href="#">Creator</a></li>*@
+                        @*</ul>
+                    </li>*@
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @{User user = (User) Session["User"];}
+                    <!-- User is logged in -->
+                    @if (user != null && user.Username != "")
+                    {
+                        <li class="text-center">
+                            <div class="welcomemessage text-center">Welkom terug, <a class="usernameanchor" href="#" onclick="location.href = '@Url.Action("Dashboard", "User")'">@user.Username</a>
+                            </div></li>
+                        <!-- Check if user is logged in as backoffice, to add a manage button -->
+                        if (user.Accounttype == "moderator" || user.Accounttype == "owner")
+                        {
+                            <li><a href="#" class="btn btn-primary navbar-btn" onclick="location.href = '@Url.Action("AdminPanel", "Admin")'"><i class="fa fa-cogs" aria-hidden="true"></i> Beheer</a></li>
+                        }
+                        <li><a href="#" class="btn btn-primary navbar-btn" onclick="location.href = '@Url.Action("LogOut", "User")'"><span class="glyphicon glyphicon-log-in"></span> Uitloggen</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#" class="btn btn-primary navbar-btn" onclick="location.href = '@Url.Action("LoginView", "User")'"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Inloggen</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+    </div>
+    <footer style="background-color: #ffffff;">
+        @*<a href='https://www.freepik.com/free-vector/doodle-health-and-fitness-icons_1265560.htm'>Icons by Freepik</a>*@
+        <a href="https://www.linkedin.com/in/dylanmartens" target="_blank"><p style="margin-bottom: 0;">&copy; @DateTime.Now.Year - Dylan Martens</p></a>
+        <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+    </footer>
+</body>
+</html>
