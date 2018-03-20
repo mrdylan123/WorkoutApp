@@ -41,12 +41,6 @@
         }
     }
     <hr />
-    
-    <!-- If no workouts have been found in the first place -->
-    @if (ViewBag.WorkoutsListCount == 0)
-    {
-        <p>Er zijn geen workouts gevonden</p>   
-    }
 
     <div id="results">
         @{Html.RenderPartial("WorkoutsPartial");}

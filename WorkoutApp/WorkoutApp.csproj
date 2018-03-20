@@ -161,9 +161,6 @@
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Content\froala_editor.pkgd.min.css" />
-    <Content Include="Content\froala_editor.pkgd.min.js" />
-    <Content Include="Content\froala_style.min.css" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
@@ -227,6 +224,7 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Views\Admin\WriteWorkout.cshtml" />
+    <Content Include="Views\Workout\WorkoutDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -446,6 +446,38 @@ smaller than 560
     End of workout page
 */
 
+
+
+
+/*
+    Workout detailpage styling
+*/
+.workoutlabels > h1 {
+    margin-top: 0;
+    font-family: 'Nunito', sans-serif;
+    top: 0;
+    right: 0;
+}
+
+.workoutdetailtitle > h2 {
+    margin-bottom: 0;
+}
+
+.detailpagebutton {
+    margin-top: 15px;
+}
+
+.detailpagedate {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+/*
+    End of workoutdetail page
+*/
+
+
+
 /*
    Adminpanel page
 */

@@ -38,6 +38,7 @@ namespace WorkoutApp.Controllers
             string birthdatestring = Request["dateofbirth"];
             string gender = Request["gender"];
             string password = Request["Registerpassword"];
+            string name = Request["Name"];
 
             // Check if account with same username/email already exists
             IEnumerable<User> allUsers = repo.GetUsers();
@@ -92,6 +93,7 @@ namespace WorkoutApp.Controllers
                 Email = email,
                 Username = username,
                 BirthDate = birthdate,
+                Name = name,
                 Gender = gender,
                 Password = savedPasswordHash,
                 CreationDate = creationdate,
