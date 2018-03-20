@@ -9,8 +9,6 @@
     <!-- Import other elements -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
-    <link href="~/Content/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css"/>
-    <link href="~/Content/froala_style.min.css" rel="stylesheet" type="text/css"/>
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/jslist.js"></script>
     <script src="~/Scripts/jquery-3.2.1.min.js"></script>
@@ -20,7 +18,6 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery-ajax-unobtrusive@3.2.4/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script>
-    <script type="text/javascript" src="~/Content/froala_editor.pkgd.min.js"></script>
 
     <!-- Import fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
@@ -40,14 +37,14 @@
     @if (null != TempData["alertMessage"])
     {
         <script type="text/javascript">
-            alert("@TempData["alertMessage"]");
+            alert('@TempData["alertMessage"]');
         </script>
     }
 
 </head>
 <body>
     <nav class="navbar navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                     <span class="icon-bar"></span>

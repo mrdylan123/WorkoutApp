@@ -2,13 +2,13 @@
 
 @if (ViewBag.WorkoutsListCount == 0)
 {
-    <p>Er zijn geen resultaten gevonden.</p>   
+    <p>Er zijn geen resultaten gevonden.</p>
 }
 
 @if (null != TempData["alertMessage"])
 {
     <script type="text/javascript">
-            alert("@TempData["alertMessage"]");
+            alert('@TempData["alertMessage"]');
     </script>
 }
 
@@ -16,7 +16,6 @@
 {
     Workout workout = ViewBag.WorkoutsList[i];
 
-    <!-- TODO: Add <a> tag to redirect to specific workout page -->
     <div class="box workoutscontent">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
@@ -48,10 +47,12 @@
                 <p>@workout.DescriptionShort</p>
             </div>
             <div class="col-md-12">
-                <button type="submit" class="btn btn-regular">
-                     Meer informatie <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                <button type="submit" class="btn btn-regular" onclick="location.href = '@Url.Action("WorkoutDetails", "Workout", new {workout.WorkoutID})'">
+                    Meer informatie <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
                 </button>
             </div>
+            
+            <!-- TODO: Voeg wijzig/verwijder knoppen toe voor owners -->
         </div>
     </div>
 }

@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using WorkoutApp.Config;
 using WorkoutApp.Logic;
@@ -15,10 +13,12 @@ namespace WorkoutApp.Controllers
     public class WorkoutController : Controller
     {
         private IWorkoutRepository repo;
+        private IUserRepository userrepo;
 
-        public WorkoutController(IWorkoutRepository repo)
+        public WorkoutController(IWorkoutRepository repo, IUserRepository userrepo)
         {
             this.repo = repo;
+            this.userrepo = userrepo;
         }
 
         // GET: Workout
@@ -159,6 +159,22 @@ namespace WorkoutApp.Controllers
             }
             TempData["alertMessage"] = "Log in om deze pagina te bezoeken";
             return View("../Home/Index");
+        }
+
+        public ViewResult WorkoutDetails(int? workoutId)
+        {
+            if (workoutId != null)
+            {
+                Workout workout = repo.GetWorkouts().First(w => w.WorkoutID == workoutId);
+                ViewBag.Workout = workout;
+                var writerid = workout.Writer;
+                User writer = userrepo.GetUsers().First(u => u.UserID == writerid);
+                string writername = writer.Name;
+                ViewBag.Writer = writername;
+                return View("WorkoutDetails");
+            }
+            TempData["alertMessage"] = "Kon details van de gekozen workout niet ophalen, probeer het later opnieuw";
+            return View("Workouts");
         }
     }
 }

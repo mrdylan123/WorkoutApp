@@ -1,0 +1,92 @@
+﻿@using WorkoutApp.Models
+@{Workout workout = ViewBag.Workout;}
+@{
+    ViewBag.Title = workout.WorkoutTitle + " | Victoria PT";
+    ViewBag.Active = 1;
+}
+
+
+
+<div class="box workoutstitle">
+    <div class="row">
+        <div class="col-md-12 text-center workoutdetailtitle">
+            <h2>@workout.WorkoutTitle</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center workoutlabels">
+            <h1>
+                @if (workout.Goal == "Afvallen")
+            {<span class="label label-primary workoutlabel">Afslanken</span>}
+                @if (workout.Goal == "Spieropbouw")
+            {<span class="label label-success workoutlabel">Spieropbouw</span>}
+                @if (workout.Goal == "Spierkracht")
+            {<span class="label label-warning workoutlabel">Spiermassa opbouwen</span>}
+                @if (workout.Goal == "Core")
+            {<span class="label label-danger workoutlabel">Core stability</span>}
+            </h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center text-muted">
+            <p class="pricetext">€@workout.Price</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 workoutdescription">
+            @Html.Raw(System.Web.HttpUtility.HtmlDecode(workout.DescriptionLong))
+        </div>
+    </div>
+
+
+    @{ var date = @workout.CreationDateTime.ToString("dd-MM-yyyy");}
+    <p class="text-muted detailpagedate">@date door @ViewBag.Writer</p><hr class="hr-box" />
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Vragen / Geïnteresseerd?</h1>
+            <p class="lead text-center">Neem contact met ons op!</p>
+
+            <form method="post" role="form" action="@Url.Action("Contact", "Contact")">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <div class="form-group">
+                            <label for="contactname">Naam</label>
+                            <input type="text" pattern=".{2,}" oninvalid="this.setCustomValidity('Je naam moet minimaal 2 en mag maximaal 20 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="contactname" name="contactname" maxlength="20" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Emailadres</label>
+                            <input type="email" pattern=".{3,}" oninvalid="this.setCustomValidity('Je emailadres moet minimaal 3 en maximaal 25 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="email" name="email" maxlength="25" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="subject">Onderwerp</label>
+                            <input type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('Het onderwerp moet minimaal 3 en mag maximaal 25 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="subject" name="subject" maxlength="25" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contactMessage">Bericht</label>
+                            <textarea name="contactMessage" id="contactMessage" class="form-control" rows="7" required></textarea>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-regular">
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i> Verzenden
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <hr class="hr-box" />
+
+    <button type="submit" class="btn btn-regular detailpagebutton" onclick="location.href = '@Url.Action("Workouts", "Workout")'">
+        <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Terug
+    </button>
+</div>

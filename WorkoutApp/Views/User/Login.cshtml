@@ -3,6 +3,12 @@
     ViewBag.Title = "Inloggen - VictoriaPT";
 }
 
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    })
+</script>
+
 <div class="row">
     
     <!-- Register box -->
@@ -19,12 +25,17 @@
                     <input type="email" pattern=".{3,}" oninvalid="this.setCustomValidity('Uw emailadres moet minimaal 3 en maximaal 25 karakters bevatten.')" oninput="this.setCustomValidity('')"  class="form-control" id="email" name="email" maxlength="25" required>
                 </div>
                 
-            <div class="form-group">
-                <label for="Registerusername">Gebruikersnaam</label>
-                <input type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('Uw inlognaam en wachtwoord mogen minimaal 3 en maximaal 20 karakters bevatten.')" oninput="this.setCustomValidity('')"  class="form-control" id="Registerusername" name="Registerusername" maxlength="20" required>
-            </div>
+                <div class="form-group">
+                    <label for="Registerusername">Gebruikersnaam</label>
+                    <input type="text" pattern=".{3,}" oninvalid="this.setCustomValidity('Uw inlognaam en wachtwoord mogen minimaal 3 en maximaal 20 karakters bevatten.')" oninput="this.setCustomValidity('')"  class="form-control" id="Registerusername" name="Registerusername" maxlength="20" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="Name">Naam</label>
+                    <input type="text" pattern=".{2,}" data-toggle="tooltip" data-placement="top" title="Uw naam die gebruikt wordt om mogelijk op de website en in emails weer te geven. Dit hoeft niet uw echte naam te zijn." oninvalid="this.setCustomValidity('Uw naam moet minimaal 2 en mag maximaal 30 karakters bevatten.')" oninput="this.setCustomValidity('')" class="form-control" id="Name" name="Name" maxlength="30" required>
+                </div>
 
-            <div class="row">
+                <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="dateofbirth">Geboortedatum</label>
